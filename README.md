@@ -1,0 +1,1 @@
+<b> Develop and evaluate a trading algorithm using statistical and machine learning models to optimize portfolio returns for S&P 500 stocks. Focus on strategy performance through backtesting, risk management, and alpha generation.</b>
