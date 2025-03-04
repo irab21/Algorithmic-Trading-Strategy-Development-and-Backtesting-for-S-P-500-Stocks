@@ -2,7 +2,7 @@ import backtrader as bt
 import pandas as pd
 import datetime
 
-# Define the Strategy
+# Defining the Strategy
 class MeanReversionStrategy(bt.Strategy):
     params = (
         ('rsi_period', 14),
@@ -38,7 +38,7 @@ def main():
     cerebro = bt.Cerebro()
     cerebro.addstrategy(MeanReversionStrategy)
 
-    # Load data
+    # Loading data
     symbol = 'AAPL'  # Example stock
     start_date = '2020-01-01'
     end_date = '2022-12-31'
@@ -46,21 +46,21 @@ def main():
 
     cerebro.adddata(data)
 
-    # Add analyzers
+    # Adding analyzers
     cerebro.addanalyzer(bt.analyzers.PyFolio, _name='pyfolio')
     cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name='sharpe')
     cerebro.addanalyzer(bt.analyzers.DrawDown, _name='drawdown')
 
-    # Run backtest
+    # Runing backtest
     print("Starting backtest...")
     results = cerebro.run()
     strat = results[0]
 
-    # Display performance metrics
+    # Displaying performance metrics
     print(f"Sharpe Ratio: {strat.analyzers.sharpe.get_analysis()}")
     print(f"Drawdown: {strat.analyzers.drawdown.get_analysis()}")
 
-    # Plot the results
+    # Plotting the results
     cerebro.plot()
 
 
